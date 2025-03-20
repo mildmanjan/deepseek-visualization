@@ -82,7 +82,7 @@ const DeepSeekVisualization = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [speed, setSpeed] = useState(3000);
-  const [showInfo, setShowInfo] = useState(true);
+  const [showInfo, setShowInfo] = useState(false);
   const [modelAnswer, setModelAnswer] = useState("");
   const [showSolution, setShowSolution] = useState(false);
   const [rewardValue, setRewardValue] = useState(0);
@@ -93,64 +93,64 @@ const DeepSeekVisualization = () => {
   const learningExamples = [
     {
       step: "Introduction: Reasoning with Verifiable Problems",
-      problem: "This demonstration uses mathematical problems with known answers to show how DeepSeek trains and distills reasoning capabilities.",
-      modelThinking: "Throughout this visualization, you'll see how models approach problems with verifiable solutions. This allows us to measure the reasoning accuracy and provide appropriate feedback during training and fine-tuning.",
+      problem: "  This demonstration uses mathematical problems with known answers to show how DeepSeek trains and distills reasoning capabilities.",
+      modelThinking: "  Throughout this visualization, you'll see how models approach problems with verifiable solutions. This allows us to measure the reasoning accuracy and provide appropriate feedback during training and fine-tuning.",
       correctAnswer: null,
       reward: null,
       description: "DeepSeek's approach uses problems with known answers, like math equations, as the foundation for teaching models how to reason. This gives the advantage of being able to automatically verify solutions and provide clear feedback to the model.",
     },
     {
       step: "Phase 1: Training Large Model",
-      problem: "If John has 5 apples and gives 2 to Mary, how many apples does John have left?",
-      modelThinking: "Let me solve this step by step:\n1. John starts with 5 apples\n2. John gives 2 apples to Mary\n3. So John has 5 - 2 = 3 apples left",
+      problem: "  If John has 5 apples and gives 2 to Mary, how many apples does John have left?",
+      modelThinking: "  Let me solve this step by step:\n1. John starts with 5 apples\n2. John gives 2 apples to Mary\n3. So John has 5 - 2 = 3 apples left",
       correctAnswer: 3,
       reward: 1,
       description: "DeepSeek first trains their large 671B parameter model using reinforcement learning. The model learns to solve problems by breaking down reasoning into step-by-step chains of thought.",
     },
     {
       step: "Large Model Reasoning Development",
-      problem: "Find the value of x in the equation 3x + 7 = 22.",
-      modelThinking: "I'll solve for x:\n1. First, I need to isolate the term with x\n2. Subtract 7 from both sides: 3x + 7 - 7 = 22 - 7\n3. This gives me: 3x = 15\n4. Now divide both sides by 3: 3x/3 = 15/3\n5. Therefore, x = 5\n\nLet me verify: If x = 5, then 3x + 7 = 3(5) + 7 = 15 + 7 = 22. Yes, this checks out!",
+      problem: "  Find the value of x in the equation 3x + 7 = 22.",
+      modelThinking: "  I'll solve for x:\n1. First, I need to isolate the term with x\n2. Subtract 7 from both sides: 3x + 7 - 7 = 22 - 7\n3. This gives me: 3x = 15\n4. Now divide both sides by 3: 3x/3 = 15/3\n5. Therefore, x = 5\n\nLet me verify: If x = 5, then 3x + 7 = 3(5) + 7 = 15 + 7 = 22. Yes, this checks out!",
       correctAnswer: 5,
       reward: 1,
-      description: "Through reinforcement learning, the large model becomes proficient at complex reasoning. It learns to verify answers and develop structured thinking patterns that will later be transferred to smaller models.",
+      description: "  Through reinforcement learning, the large model becomes proficient at complex reasoning. It learns to verify answers and develop structured thinking patterns that will later be transferred to smaller models.",
     },
     {
       step: "Generating Distillation Data",
-      problem: "If a rectangle has a length of 8 cm and a width of 6 cm, what is the area and perimeter?",
-      modelThinking: "Let me work through this:\n1. Area of rectangle = length × width\n2. Area = 8 cm × 6 cm = 48 cm²\n3. Perimeter of rectangle = 2 × (length + width)\n4. Perimeter = 2 × (8 cm + 6 cm) = 2 × 14 cm = 28 cm\nSo the area is 48 cm² and the perimeter is 28 cm.",
+      problem: "  If a rectangle has a length of 8 cm and a width of 6 cm, what is the area and perimeter?",
+      modelThinking: "  Let me work through this:\n1. Area of rectangle = length × width\n2. Area = 8 cm × 6 cm = 48 cm²\n3. Perimeter of rectangle = 2 × (length + width)\n4. Perimeter = 2 × (8 cm + 6 cm) = 2 × 14 cm = 28 cm\nSo the area is 48 cm² and the perimeter is 28 cm.",
       correctAnswer: "48 cm², 28 cm",
       reward: 1,
-      description: "Once fully trained, the large model generates thousands of reasoning examples on diverse problems. These examples capture the model's reasoning process, not just the final answers.",
+      description: "  Once fully trained, the large model generates thousands of reasoning examples on diverse problems. These examples capture the model's reasoning process, not just the final answers.",
     },
     {
       step: "Phase 2: Fine-Tuning Preparation",
       problem: "DeepSeek prepares to transfer knowledge to smaller models through fine-tuning.",
-      modelThinking: "Unlike regular training from scratch, fine-tuning starts with a pre-trained model and adapts it for a specific purpose. In this case, teaching smaller models to reason like the large model.",
+      modelThinking: "  Unlike regular training from scratch, fine-tuning starts with a pre-trained model and adapts it for a specific purpose. In this case, teaching smaller models to reason like the large model.",
       correctAnswer: null,
       reward: null,
       description: "Fine-tuning is the process of taking a pre-trained model and adapting it to perform specific tasks by continuing training on specialized data. In DeepSeek's distillation, fine-tuning is used to transfer reasoning abilities to smaller models.",
     },
     {
       step: "Fine-Tuning Small Models (Part 1)",
-      problem: "The fine-tuning process begins with teacher-student training.",
-      modelThinking: "The large 671B 'teacher' model generates reasoning chains, and smaller 'student' models (starting with 70B) are fine-tuned to reproduce the same reasoning patterns and outputs.",
+      problem: " The fine-tuning process begins with teacher-student training.",
+      modelThinking: " The large 671B 'teacher' model generates reasoning chains, and smaller 'student' models (starting with 70B) are fine-tuned to reproduce the same reasoning patterns and outputs.",
       correctAnswer: null,
       reward: null,
-      description: "During fine-tuning, the smaller model starts with general language understanding from pre-training, then adjusts its parameters specifically to match the reasoning patterns of the large model. This is more efficient than training from scratch.",
+      description: " During fine-tuning, the smaller model starts with general language understanding from pre-training, then adjusts its parameters specifically to match the reasoning patterns of the large model. This is more efficient than training from scratch.",
     },
     {
       step: "Fine-Tuning Small Models (Part 2)",
-      problem: "Loss functions are specially designed for effective knowledge transfer.",
-      modelThinking: "The fine-tuning process uses specialized loss functions that focus on matching the reasoning chains, not just final answers. These loss functions measure how closely the small model's thinking matches the large model's step-by-step approach.\n\nA loss function is like a 'wrongness score' - it measures how far off the student model is from the teacher model's reasoning. The student model's goal is to minimize this score by adjusting its understanding until its reasoning closely matches the teacher's.",
+      problem: " Loss functions are specially designed for effective knowledge transfer.",
+      modelThinking: "  The fine-tuning process uses specialized loss functions that focus on matching the reasoning chains, not just final answers. These loss functions measure how closely the small model's thinking matches the large model's step-by-step approach.\n\nA loss function is like a 'wrongness score' - it measures how far off the student model is from the teacher model's reasoning. The student model's goal is to minimize this score by adjusting its understanding until its reasoning closely matches the teacher's.",
       correctAnswer: null,
       reward: null,
-      description: "DeepSeek uses specialized fine-tuning techniques that prioritize the transfer of reasoning patterns. The smaller models are trained to minimize the difference between their outputs and the large model's outputs at each step of the reasoning process. This approach ensures that the smaller models don't just memorize answers but learn the actual reasoning strategies.",
+      description: " DeepSeek uses specialized fine-tuning techniques that prioritize the transfer of reasoning patterns. The smaller models are trained to minimize the difference between their outputs and the large model's outputs at each step of the reasoning process. This approach ensures that the smaller models don't just memorize answers but learn the actual reasoning strategies.",
     },
     {
       step: "Progressive Fine-Tuning",
       problem: "Smaller models are fine-tuned in a cascading fashion.",
-      modelThinking: "After fine-tuning the 70B model, its outputs can be used to fine-tune even smaller models (7B, then 1.5B), creating a pipeline of knowledge distillation.",
+      modelThinking: "  After fine-tuning the 70B model, its outputs can be used to fine-tune even smaller models (7B, then 1.5B), creating a pipeline of knowledge distillation.",
       correctAnswer: null,
       reward: null,
       description: "DeepSeek uses a progressive approach where each fine-tuned model can become a teacher for even smaller models. This creates a distillation pipeline that efficiently transfers knowledge while managing computational requirements.",
@@ -158,10 +158,10 @@ const DeepSeekVisualization = () => {
     {
       step: "Testing Fine-Tuned Models",
       problem: "If the price of a shirt decreased by 30% to $35, what was the original price?",
-      modelThinking: "I need to find the original price before the 30% discount:\n1. Let's call the original price p\n2. After a 30% discount, the price is $35\n3. This means: p × (1 - 0.3) = $35\n4. p × 0.7 = $35\n5. p = $35 ÷ 0.7 = $50\n\nSo the original price was $50.",
+      modelThinking: "  I need to find the original price before the 30% discount:\n1. Let's call the original price p\n2. After a 30% discount, the price is $35\n3. This means: p × (1 - 0.3) = $35\n4. p × 0.7 = $35\n5. p = $35 ÷ 0.7 = $50\n\nSo the original price was $50.",
       correctAnswer: 50,
       reward: 1,
-      description: "The fine-tuned smaller model demonstrates reasoning capabilities similar to the large model. This 7B parameter model (which is 99% smaller than the original 671B model) shows it can solve complex problems using the same step-by-step approach it learned from the teacher model. This proves the effectiveness of DeepSeek's distillation approach.",
+      description: "The fine-tuned smaller model demonstrates reasoning capabilities similar to the large model. This 7B parameter model (which is 99% smaller than the original 671B model) shows it can solve complex problems using the same step-by-step approach it learned from the teacher model.\n\nThis achievement is significant for several reasons:\n\n1. It proves knowledge distillation can transfer reasoning abilities, not just factual knowledge\n2. It makes advanced AI accessible on consumer hardware\n3. It reduces API costs by approximately 96%\n4. It democratizes access to AI reasoning capabilities without requiring massive computational resources\n\nDeepSeek's approach represents a major breakthrough in making powerful AI more efficient and accessible.",
     }
   ];
 
@@ -279,9 +279,9 @@ const DeepSeekVisualization = () => {
       <InfoPanel isOpen={showInfo} setIsOpen={setShowInfo} />
       
       <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold mb-2">DeepSeek's Model Distillation</h1>
-        <p className="text-gray-600">
-          Visualizing how DeepSeek transfers reasoning abilities from large models to small, efficient ones
+        <h1 className="text-3xl font-bold mb-2 whitespace-pre-line">DeepSeek's Model Distillation</h1>
+        <p className="text-gray-600 whitespace-pre-line">
+          Visualising how DeepSeek transfers reasoning abilities from large models to small, efficient ones
         </p>
       </div>
       
@@ -296,10 +296,10 @@ const DeepSeekVisualization = () => {
       {/* Current stage */}
       <div className="mb-6">
         <div className="bg-blue-50 p-4 rounded-lg">
-          <h2 className="text-xl font-semibold text-blue-800 mb-2">
+          <h2 className="text-xl font-semibold text-blue-800 mb-2 whitespace-pre-line">
             {learningExamples[currentStep].step}
           </h2>
-          <p className="text-gray-700 mb-4">
+          <p className="text-gray-700 mb-4 whitespace-pre-line">
             {learningExamples[currentStep].description}
           </p>
         </div>
