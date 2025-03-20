@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/deepseek-visualization/static/css/main.e6c13ad2.css",
+    "main.js": "/deepseek-visualization/static/js/main.0be36742.js",
+    "static/js/453.405b50d0.chunk.js": "/deepseek-visualization/static/js/453.405b50d0.chunk.js",
+    "index.html": "/deepseek-visualization/index.html",
+    "main.e6c13ad2.css.map": "/deepseek-visualization/static/css/main.e6c13ad2.css.map",
+    "main.0be36742.js.map": "/deepseek-visualization/static/js/main.0be36742.js.map",
+    "453.405b50d0.chunk.js.map": "/deepseek-visualization/static/js/453.405b50d0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.0be36742.js"
+  ]
+}
