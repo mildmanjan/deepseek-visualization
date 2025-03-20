@@ -15,9 +15,9 @@ const InfoPanel = ({ isOpen, setIsOpen }) => {
       )}
       
       {isOpen && (
-        <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 w-[90vw] sm:w-96 max-w-full max-h-[80vh] overflow-y-auto">
+        <div className="bg-white rounded-lg shadow-lg p-6 w-96 max-w-full">
           <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg sm:text-xl font-bold">DeepSeek's Distillation Approach</h3>
+            <h3 className="text-xl font-bold">DeepSeek's Distillation Approach</h3>
             <button
               onClick={() => setIsOpen(false)}
               className="text-gray-500 hover:text-gray-700"
@@ -28,22 +28,22 @@ const InfoPanel = ({ isOpen, setIsOpen }) => {
 
           <div className="space-y-4">
             <section>
-              <h4 className="font-semibold text-base sm:text-lg mb-2">What is Model Distillation?</h4>
-              <p className="text-xs sm:text-sm text-gray-700">
+              <h4 className="font-semibold text-lg mb-2">What is Model Distillation?</h4>
+              <p className="text-sm text-gray-700">
                 Model distillation is the process of transferring knowledge from a large, resource-intensive model (the "teacher") to a smaller, more efficient model (the "student").
               </p>
             </section>
 
             <section>
-              <h4 className="font-semibold text-base sm:text-lg mb-2">DeepSeek's Innovation</h4>
-              <p className="text-xs sm:text-sm text-gray-700">
+              <h4 className="font-semibold text-lg mb-2">DeepSeek's Innovation</h4>
+              <p className="text-sm text-gray-700">
                 Traditional distillation transfers only final outputs. DeepSeek's approach transfers the entire reasoning process, preserving the step-by-step chain of thought that makes these models powerful.
               </p>
             </section>
 
             <section>
-              <h4 className="font-semibold text-base sm:text-lg mb-2">The Technical Process</h4>
-              <ol className="list-decimal pl-5 space-y-2 text-xs sm:text-sm text-gray-700">
+              <h4 className="font-semibold text-lg mb-2">The Technical Process</h4>
+              <ol className="list-decimal pl-5 space-y-2 text-sm text-gray-700">
                 <li>Train the large 671B model to reason step-by-step</li>
                 <li>Generate thousands of reasoning examples showing full problem-solving</li>
                 <li>Use these examples as training data for smaller models</li>
@@ -53,8 +53,8 @@ const InfoPanel = ({ isOpen, setIsOpen }) => {
             </section>
 
             <section>
-              <h4 className="font-semibold text-base sm:text-lg mb-2">Real-World Impact</h4>
-              <ul className="list-disc pl-5 space-y-2 text-xs sm:text-sm text-gray-700">
+              <h4 className="font-semibold text-lg mb-2">Real-World Impact</h4>
+              <ul className="list-disc pl-5 space-y-2 text-sm text-gray-700">
                 <li>
                   <span className="font-medium">Accessibility:</span> Advanced AI that runs on consumer hardware
                 </li>
@@ -93,7 +93,7 @@ const DeepSeekVisualization = () => {
   const learningExamples = [
     {
       step: "Introduction: Reasoning with Verifiable Problems",
-      problem: "This demonstration uses mathematical problems with known answers to show how DeepSeek trains and distills reasoning capabilities.",
+      problem: "  This demonstration uses mathematical problems with known answers to show how DeepSeek trains and distills reasoning capabilities.",
       modelThinking: "  Throughout this visualization, you'll see how models approach problems with verifiable solutions. This allows us to measure the reasoning accuracy and provide appropriate feedback during training and fine-tuning.",
       correctAnswer: null,
       reward: null,
@@ -101,7 +101,7 @@ const DeepSeekVisualization = () => {
     },
     {
       step: "Phase 1: Training Large Model",
-      problem: "If John has 5 apples and gives 2 to Mary, how many apples does John have left?",
+      problem: "  If John has 5 apples and gives 2 to Mary, how many apples does John have left?",
       modelThinking: "  Let me solve this step by step:\n1. John starts with 5 apples\n2. John gives 2 apples to Mary\n3. So John has 5 - 2 = 3 apples left",
       correctAnswer: 3,
       reward: 1,
@@ -109,19 +109,19 @@ const DeepSeekVisualization = () => {
     },
     {
       step: "Large Model Reasoning Development",
-      problem: "Find the value of x in the equation 3x + 7 = 22.",
+      problem: "  Find the value of x in the equation 3x + 7 = 22.",
       modelThinking: "  I'll solve for x:\n1. First, I need to isolate the term with x\n2. Subtract 7 from both sides: 3x + 7 - 7 = 22 - 7\n3. This gives me: 3x = 15\n4. Now divide both sides by 3: 3x/3 = 15/3\n5. Therefore, x = 5\n\nLet me verify: If x = 5, then 3x + 7 = 3(5) + 7 = 15 + 7 = 22. Yes, this checks out!",
       correctAnswer: 5,
       reward: 1,
-      description: "Through reinforcement learning, the large model becomes proficient at complex reasoning. It learns to verify answers and develop structured thinking patterns that will later be transferred to smaller models.",
+      description: "  Through reinforcement learning, the large model becomes proficient at complex reasoning. It learns to verify answers and develop structured thinking patterns that will later be transferred to smaller models.",
     },
     {
       step: "Generating Distillation Data",
-      problem: "If a rectangle has a length of 8 cm and a width of 6 cm, what is the area and perimeter?",
+      problem: "  If a rectangle has a length of 8 cm and a width of 6 cm, what is the area and perimeter?",
       modelThinking: "  Let me work through this:\n1. Area of rectangle = length × width\n2. Area = 8 cm × 6 cm = 48 cm²\n3. Perimeter of rectangle = 2 × (length + width)\n4. Perimeter = 2 × (8 cm + 6 cm) = 2 × 14 cm = 28 cm\nSo the area is 48 cm² and the perimeter is 28 cm.",
       correctAnswer: "48 cm², 28 cm",
       reward: 1,
-      description: "Once fully trained, the large model generates thousands of reasoning examples on diverse problems. These examples capture the model's reasoning process, not just the final answers.",
+      description: "  Once fully trained, the large model generates thousands of reasoning examples on diverse problems. These examples capture the model's reasoning process, not just the final answers.",
     },
     {
       step: "Phase 2: Fine-Tuning Preparation",
@@ -133,19 +133,19 @@ const DeepSeekVisualization = () => {
     },
     {
       step: "Fine-Tuning Small Models (Part 1)",
-      problem: "The fine-tuning process begins with teacher-student training.",
-      modelThinking: "  The large 671B 'teacher' model generates reasoning chains, and smaller 'student' models (starting with 70B) are fine-tuned to reproduce the same reasoning patterns and outputs.",
+      problem: " The fine-tuning process begins with teacher-student training.",
+      modelThinking: " The large 671B 'teacher' model generates reasoning chains, and smaller 'student' models (starting with 70B) are fine-tuned to reproduce the same reasoning patterns and outputs.",
       correctAnswer: null,
       reward: null,
-      description: "During fine-tuning, the smaller model starts with general language understanding from pre-training, then adjusts its parameters specifically to match the reasoning patterns of the large model. This is more efficient than training from scratch.",
+      description: " During fine-tuning, the smaller model starts with general language understanding from pre-training, then adjusts its parameters specifically to match the reasoning patterns of the large model. This is more efficient than training from scratch.",
     },
     {
       step: "Fine-Tuning Small Models (Part 2)",
-      problem: "Loss functions are specially designed for effective knowledge transfer.",
+      problem: " Loss functions are specially designed for effective knowledge transfer.",
       modelThinking: "  The fine-tuning process uses specialized loss functions that focus on matching the reasoning chains, not just final answers. These loss functions measure how closely the small model's thinking matches the large model's step-by-step approach.\n\nA loss function is like a 'wrongness score' - it measures how far off the student model is from the teacher model's reasoning. The student model's goal is to minimize this score by adjusting its understanding until its reasoning closely matches the teacher's.",
       correctAnswer: null,
       reward: null,
-      description: "DeepSeek uses specialized fine-tuning techniques that prioritize the transfer of reasoning patterns. The smaller models are trained to minimize the difference between their outputs and the large model's outputs at each step of the reasoning process. This approach ensures that the smaller models don't just memorize answers but learn the actual reasoning strategies.",
+      description: " DeepSeek uses specialized fine-tuning techniques that prioritize the transfer of reasoning patterns. The smaller models are trained to minimize the difference between their outputs and the large model's outputs at each step of the reasoning process. This approach ensures that the smaller models don't just memorize answers but learn the actual reasoning strategies.",
     },
     {
       step: "Progressive Fine-Tuning",
@@ -275,18 +275,18 @@ const DeepSeekVisualization = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto p-2 sm:p-4 pb-4 sm:pb-8">
+    <div className="max-w-6xl mx-auto p-4 pb-8">
       <InfoPanel isOpen={showInfo} setIsOpen={setShowInfo} />
       
-      <div className="mb-4 sm:mb-8 text-center">
-        <h1 className="text-xl sm:text-3xl font-bold mb-1 sm:mb-2">DeepSeek's Model Distillation</h1>
-        <p className="text-xs sm:text-base text-gray-600">
-          Visualizing how DeepSeek transfers reasoning abilities from large models to small, efficient ones
+      <div className="mb-8 text-center">
+        <h1 className="text-3xl font-bold mb-2 whitespace-pre-line">DeepSeek's Model Distillation</h1>
+        <p className="text-gray-600 whitespace-pre-line">
+          Visualising how DeepSeek transfers reasoning abilities from large models to small, efficient ones
         </p>
       </div>
       
       {/* Progress bar */}
-      <div className="mb-3 sm:mb-6 bg-gray-200 h-2 rounded-full">
+      <div className="mb-6 bg-gray-200 h-2 rounded-full">
         <div 
           className="bg-blue-500 h-2 rounded-full transition-all duration-500"
           style={{ width: `${((currentStep + 1) / learningExamples.length) * 100}%` }}
@@ -294,66 +294,66 @@ const DeepSeekVisualization = () => {
       </div>
       
       {/* Current stage */}
-      <div className="mb-3 sm:mb-6">
-        <div className="bg-blue-50 p-3 sm:p-4 rounded-lg">
-          <h2 className="text-lg sm:text-xl font-semibold text-blue-800 mb-1 sm:mb-2">
+      <div className="mb-6">
+        <div className="bg-blue-50 p-4 rounded-lg">
+          <h2 className="text-xl font-semibold text-blue-800 mb-2 whitespace-pre-line">
             {learningExamples[currentStep].step}
           </h2>
-          <p className="text-xs sm:text-base text-gray-700 mb-2 sm:mb-4 whitespace-pre-line">
+          <p className="text-gray-700 mb-4 whitespace-pre-line">
             {learningExamples[currentStep].description}
           </p>
         </div>
       </div>
       
       {/* Main visualization area */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-6 mb-4 sm:mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {/* Problem and Model */}
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-          <div className="bg-gray-50 p-3 sm:p-4 border-b">
-            <h3 className="font-semibold text-base sm:text-lg">Problem</h3>
+          <div className="bg-gray-50 p-4 border-b">
+            <h3 className="font-semibold text-lg">Problem</h3>
           </div>
-          <div className="p-3 sm:p-5">
-            <div className="bg-yellow-50 p-3 sm:p-4 rounded-lg mb-3 sm:mb-4 text-sm sm:text-base">
+          <div className="p-5">
+            <div className="bg-yellow-50 p-4 rounded-lg mb-4">
               {learningExamples[currentStep].problem}
             </div>
             
             {currentStep < 6 && (
-              <div className="mt-3 sm:mt-4">
+              <div className="mt-4">
                 <div className="flex items-center mb-2">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-500 text-white rounded-full flex items-center justify-center mr-2 sm:mr-3">
-                    <span className="text-xs sm:text-sm">AI</span>
+                  <div className="w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center mr-3">
+                    AI
                   </div>
-                  <h4 className="font-medium text-sm sm:text-base">DeepSeek R1 Model Thinking:</h4>
+                  <h4 className="font-medium">DeepSeek R1 Model Thinking:</h4>
                 </div>
-                <div className="pl-10 sm:pl-14 pr-2 sm:pr-4 py-2 sm:py-3 bg-gray-50 rounded-lg whitespace-pre-line font-mono text-xs sm:text-sm">
+                <div className="pl-14 pr-4 py-3 bg-gray-50 rounded-lg whitespace-pre-line font-mono text-sm">
                   {modelAnswer}
                 </div>
               </div>
             )}
             
             {currentStep >= 6 && currentStep < 8 && (
-              <div className="mt-3 sm:mt-4">
+              <div className="mt-4">
                 <div className="flex items-center mb-2">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-500 text-white rounded-full flex items-center justify-center mr-2 sm:mr-3">
-                    <span className="text-xs sm:text-sm">AI</span>
+                  <div className="w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center mr-3">
+                    AI
                   </div>
-                  <h4 className="font-medium text-sm sm:text-base">Large Model (671B parameters)</h4>
+                  <h4 className="font-medium">Large Model (671B parameters)</h4>
                 </div>
-                <div className="pl-10 sm:pl-14 pr-2 sm:pr-4 py-2 sm:py-3 bg-gray-50 rounded-lg whitespace-pre-line font-mono text-xs sm:text-sm">
+                <div className="pl-14 pr-4 py-3 bg-gray-50 rounded-lg whitespace-pre-line font-mono text-sm">
                   {modelAnswer}
                 </div>
               </div>
             )}
             
             {currentStep === 8 && (
-              <div className="mt-3 sm:mt-4">
+              <div className="mt-4">
                 <div className="flex items-center mb-2">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-red-500 text-white rounded-full flex items-center justify-center mr-2 sm:mr-3">
-                    <span className="text-xs sm:text-sm">AI</span>
+                  <div className="w-10 h-10 bg-red-500 text-white rounded-full flex items-center justify-center mr-3">
+                    AI
                   </div>
-                  <h4 className="font-medium text-sm sm:text-base">Distilled Model (7B parameters)</h4>
+                  <h4 className="font-medium">Distilled Model (7B parameters)</h4>
                 </div>
-                <div className="pl-10 sm:pl-14 pr-2 sm:pr-4 py-2 sm:py-3 bg-gray-50 rounded-lg whitespace-pre-line font-mono text-xs sm:text-sm">
+                <div className="pl-14 pr-4 py-3 bg-gray-50 rounded-lg whitespace-pre-line font-mono text-sm">
                   {modelAnswer}
                 </div>
               </div>
@@ -365,27 +365,27 @@ const DeepSeekVisualization = () => {
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
           {currentStep < 6 ? (
             <>
-              <div className="bg-gray-50 p-3 sm:p-4 border-b">
-                <h3 className="font-semibold text-base sm:text-lg">Reinforcement Learning Process</h3>
+              <div className="bg-gray-50 p-4 border-b">
+                <h3 className="font-semibold text-lg">Reinforcement Learning Process</h3>
               </div>
-              <div className="p-3 sm:p-5">
+              <div className="p-5">
                 {showSolution && learningExamples[currentStep].correctAnswer !== null && (
-                  <div className="mb-3 sm:mb-6">
+                  <div className="mb-6">
                     <div className="flex justify-between items-center mb-2">
-                      <h4 className="font-medium text-sm sm:text-base">Correct Answer:</h4>
-                      <span className="text-green-600 font-semibold text-sm sm:text-base">
+                      <h4 className="font-medium">Correct Answer:</h4>
+                      <span className="text-green-600 font-semibold">
                         {learningExamples[currentStep].correctAnswer}
                       </span>
                     </div>
                     <div className="flex justify-between items-center mb-2">
-                      <h4 className="font-medium text-sm sm:text-base">Model Performance:</h4>
-                      <span className={`font-semibold text-sm sm:text-base ${rewardValue === 1 ? 'text-green-600' : rewardValue > 0 ? 'text-yellow-600' : 'text-red-600'}`}>
+                      <h4 className="font-medium">Model Performance:</h4>
+                      <span className={`font-semibold ${rewardValue === 1 ? 'text-green-600' : rewardValue > 0 ? 'text-yellow-600' : 'text-red-600'}`}>
                         {rewardValue === 1 ? 'Correct' : rewardValue > 0 ? 'Partially Correct' : 'Incorrect'}
                       </span>
                     </div>
-                    <div className="mt-3 sm:mt-4">
-                      <h4 className="font-medium text-sm sm:text-base mb-1 sm:mb-2">Reward Signal:</h4>
-                      <div className="bg-gray-200 h-4 sm:h-6 rounded-full overflow-hidden">
+                    <div className="mt-4">
+                      <h4 className="font-medium mb-2">Reward Signal:</h4>
+                      <div className="bg-gray-200 h-6 rounded-full overflow-hidden">
                         <div 
                           className={`h-full transition-all duration-1000 ease-out ${
                             rewardValue === 1 ? 'bg-green-500' : 
@@ -399,9 +399,9 @@ const DeepSeekVisualization = () => {
                   </div>
                 )}
                 
-                <div className="mt-4 sm:mt-8">
-                  <h4 className="font-medium text-sm sm:text-base mb-2 sm:mb-3">How DeepSeek's Training Works:</h4>
-                  <ol className="space-y-1 sm:space-y-3 text-xs sm:text-sm text-gray-700 pl-5 list-decimal">
+                <div className="mt-8">
+                  <h4 className="font-medium mb-3">How DeepSeek's Training Works:</h4>
+                  <ol className="space-y-3 text-sm text-gray-700 pl-5 list-decimal">
                     <li>The large model is trained with reinforcement learning</li>
                     <li>It learns to produce step-by-step reasoning (Chain of Thought)</li>
                     <li>The model becomes proficient at complex problem-solving</li>
@@ -413,39 +413,39 @@ const DeepSeekVisualization = () => {
             </>
           ) : (
             <>
-              <div className="bg-gray-50 p-3 sm:p-4 border-b">
-                <h3 className="font-semibold text-base sm:text-lg">Model Distillation Process</h3>
+              <div className="bg-gray-50 p-4 border-b">
+                <h3 className="font-semibold text-lg">Model Distillation Process</h3>
               </div>
-              <div className="p-3 sm:p-5">
-                <div className="mb-3 sm:mb-6">
-                  <h4 className="font-medium text-sm sm:text-base mb-2 sm:mb-3">Original Model:</h4>
+              <div className="p-5">
+                <div className="mb-6">
+                  <h4 className="font-medium mb-3">Original Model:</h4>
                   <div className="flex items-center">
-                    <span className="w-16 sm:w-24 text-xs sm:text-sm font-mono">671B params</span>
-                    <div className="flex-1 h-6 sm:h-8 bg-blue-200 rounded relative overflow-hidden">
+                    <span className="w-24 text-sm font-mono">671B params</span>
+                    <div className="flex-1 h-8 bg-blue-200 rounded relative overflow-hidden">
                       <div className="h-full bg-blue-500 rounded absolute inset-0"></div>
-                      <span className="absolute inset-0 flex items-center justify-center text-white font-medium text-xs sm:text-sm shadow-sm">DeepSeek-R1</span>
+                      <span className="absolute inset-0 flex items-center justify-center text-white font-medium text-sm shadow-sm">DeepSeek-R1</span>
                     </div>
                   </div>
                 </div>
                 
-                <div className="mb-3 sm:mb-6">
-                  <h4 className="font-medium text-sm sm:text-base mb-2 sm:mb-3">Distilled Models:</h4>
-                  <div className="space-y-2 sm:space-y-3">
+                <div className="mb-6">
+                  <h4 className="font-medium mb-3">Distilled Models:</h4>
+                  <div className="space-y-3">
                     {distilledSizes.slice(1, 1 + distilledSize).map((model, idx) => (
                       <div key={idx} className="flex items-center">
-                        <span className="w-16 sm:w-24 text-xs sm:text-sm font-mono">{model.size} params</span>
-                        <div className="flex-1 h-6 sm:h-8 bg-gray-200 rounded relative overflow-hidden">
+                        <span className="w-24 text-sm font-mono">{model.size} params</span>
+                        <div className="flex-1 h-8 bg-gray-200 rounded relative overflow-hidden">
                           <div className={`h-full ${model.color} rounded absolute inset-0 ${model.width}`}></div>
-                          <span className="absolute inset-0 flex items-center justify-center text-white font-medium text-xs sm:text-sm shadow-sm">{model.name}</span>
+                          <span className="absolute inset-0 flex items-center justify-center text-white font-medium text-sm shadow-sm">{model.name}</span>
                         </div>
                       </div>
                     ))}
                   </div>
                 </div>
                 
-                <div className="mt-4 sm:mt-6">
-                  <h4 className="font-medium text-sm sm:text-base mb-2 sm:mb-3">DeepSeek's Fine-Tuning Process:</h4>
-                  <ol className="space-y-1 sm:space-y-3 text-xs sm:text-sm text-gray-700 pl-5 list-decimal">
+                <div className="mt-6">
+                  <h4 className="font-medium mb-3">DeepSeek's Fine-Tuning Process:</h4>
+                  <ol className="space-y-3 text-sm text-gray-700 pl-5 list-decimal">
                     <li>Start with pre-trained smaller models that already understand language</li>
                     <li>Create a specialized dataset from the large model's reasoning chains</li>
                     <li>Adjust the smaller model's parameters to match the reasoning patterns</li>
@@ -462,35 +462,35 @@ const DeepSeekVisualization = () => {
       </div>
       
       {/* Controls */}
-      <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4">
+      <div className="flex items-center justify-center space-x-4">
         <button
           onClick={nextStep}
           disabled={isPlaying || currentStep === learningExamples.length - 1}
-          className="flex items-center px-2 sm:px-4 py-1 sm:py-2 bg-blue-500 text-white rounded text-xs sm:text-sm hover:bg-blue-600 disabled:opacity-50"
+          className="flex items-center px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50"
         >
-          Next <ArrowRight className="ml-1 sm:ml-2 w-3 h-3 sm:w-4 sm:h-4" />
+          Next Step <ArrowRight className="ml-2 w-4 h-4" />
         </button>
         
         <button
           onClick={() => setIsPlaying(!isPlaying)}
           disabled={currentStep === learningExamples.length - 1}
-          className="flex items-center px-2 sm:px-4 py-1 sm:py-2 bg-green-500 text-white rounded text-xs sm:text-sm hover:bg-green-600 disabled:opacity-50"
+          className="flex items-center px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 disabled:opacity-50"
         >
           {isPlaying ? (
-            <><Pause className="mr-1 sm:mr-2 w-3 h-3 sm:w-4 sm:h-4" /> Pause</>
+            <><Pause className="mr-2 w-4 h-4" /> Pause</>
           ) : (
-            <><Play className="mr-1 sm:mr-2 w-3 h-3 sm:w-4 sm:h-4" /> Auto</>
+            <><Play className="mr-2 w-4 h-4" /> Auto Play</>
           )}
         </button>
         
         <button
           onClick={resetDemo}
-          className="flex items-center px-2 sm:px-4 py-1 sm:py-2 bg-gray-500 text-white rounded text-xs sm:text-sm hover:bg-gray-600"
+          className="flex items-center px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
         >
-          <RotateCcw className="mr-1 sm:mr-2 w-3 h-3 sm:w-4 sm:h-4" /> Reset
+          <RotateCcw className="mr-2 w-4 h-4" /> Start Over
         </button>
         
-        <div className="flex items-center mt-2 sm:mt-0">
+        <div className="flex items-center">
           <input
             type="range"
             min="1000"
@@ -498,79 +498,79 @@ const DeepSeekVisualization = () => {
             step="500"
             value={speed}
             onChange={(e) => setSpeed(Number(e.target.value))}
-            className="w-24 sm:w-32"
+            className="w-32"
           />
-          <span className="text-xs sm:text-sm ml-1 sm:ml-2">{speed/1000}s</span>
+          <span className="text-sm ml-2">{speed/1000}s</span>
         </div>
       </div>
       
-      {/* Key insights - Displayed only on larger screens */}
-      <div className="hidden md:block mt-6 sm:mt-10 bg-gray-50 p-3 sm:p-5 rounded-lg">
-        <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3">Fine-Tuning vs. Traditional Training</h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 sm:gap-4">
-          <div className="bg-white p-2 sm:p-4 rounded shadow-sm">
-            <h4 className="font-medium text-blue-700 mb-1 sm:mb-2 text-sm sm:text-base">What is Fine-Tuning?</h4>
-            <p className="text-xs sm:text-sm text-gray-700">
+      {/* Key insights */}
+      <div className="mt-10 bg-gray-50 p-5 rounded-lg">
+        <h3 className="text-lg font-semibold mb-3">Fine-Tuning vs. Traditional Training</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="bg-white p-4 rounded shadow-sm">
+            <h4 className="font-medium text-blue-700 mb-2">What is Fine-Tuning?</h4>
+            <p className="text-sm text-gray-700">
               Fine-tuning is taking a pre-trained model and adapting it for specific tasks by continuing its training on specialized data. It's like teaching new skills to someone who already has a solid foundation of knowledge.
             </p>
           </div>
-          <div className="bg-white p-2 sm:p-4 rounded shadow-sm">
-            <h4 className="font-medium text-blue-700 mb-1 sm:mb-2 text-sm sm:text-base">Benefits in Distillation</h4>
-            <p className="text-xs sm:text-sm text-gray-700">
+          <div className="bg-white p-4 rounded shadow-sm">
+            <h4 className="font-medium text-blue-700 mb-2">Benefits in Distillation</h4>
+            <p className="text-sm text-gray-700">
               DeepSeek's fine-tuning approach allows smaller models to inherit reasoning abilities from the large model without starting from scratch. This is far more efficient than training small models directly and achieves better results.
             </p>
           </div>
-          <div className="bg-white p-2 sm:p-4 rounded shadow-sm">
-            <h4 className="font-medium text-blue-700 mb-1 sm:mb-2 text-sm sm:text-base">Technical Approach</h4>
-            <p className="text-xs sm:text-sm text-gray-700">
+          <div className="bg-white p-4 rounded shadow-sm">
+            <h4 className="font-medium text-blue-700 mb-2">Technical Approach</h4>
+            <p className="text-sm text-gray-700">
               DeepSeek uses specialized teacher-student fine-tuning where the large model (teacher) generates reasoning examples, and smaller models (students) are fine-tuned to match these patterns, preserving the entire reasoning process.
             </p>
           </div>
         </div>
       </div>
       
-      {/* Additional information panel - Displayed on all screens but with simplified layout on mobile */}
-      <div className="mt-3 sm:mt-6 bg-blue-50 p-3 sm:p-5 rounded-lg">
-        <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3">DeepSeek's Fine-Tuning Pipeline</h3>
-        <div className="space-y-2 sm:space-y-4">
-          <div className="flex flex-col sm:flex-row">
-            <div className="w-full sm:w-1/3 font-medium text-sm sm:text-base mb-1 sm:mb-0 sm:pr-4">1. Pre-Trained Foundation</div>
-            <div className="w-full sm:w-2/3 text-xs sm:text-sm text-gray-700">
+      {/* Additional information panel */}
+      <div className="mt-6 bg-blue-50 p-5 rounded-lg">
+        <h3 className="text-lg font-semibold mb-3">DeepSeek's Fine-Tuning Pipeline</h3>
+        <div className="space-y-4">
+          <div className="flex">
+            <div className="w-1/3 font-medium pr-4">1. Pre-Trained Foundation</div>
+            <div className="w-2/3 text-sm text-gray-700">
               Start with smaller pre-trained models that already understand language fundamentals but haven't learned complex reasoning.
             </div>
           </div>
           
-          <div className="flex flex-col sm:flex-row">
-            <div className="w-full sm:w-1/3 font-medium text-sm sm:text-base mb-1 sm:mb-0 sm:pr-4">2. Reasoning Dataset Creation</div>
-            <div className="w-full sm:w-2/3 text-xs sm:text-sm text-gray-700">
+          <div className="flex">
+            <div className="w-1/3 font-medium pr-4">2. Reasoning Dataset Creation</div>
+            <div className="w-2/3 text-sm text-gray-700">
               The large model generates thousands of step-by-step reasoning examples solving various problems, creating a specialized fine-tuning dataset.
             </div>
           </div>
           
-          <div className="flex flex-col sm:flex-row">
-            <div className="w-full sm:w-1/3 font-medium text-sm sm:text-base mb-1 sm:mb-0 sm:pr-4">3. Learning Objective Design</div>
-            <div className="w-full sm:w-2/3 text-xs sm:text-sm text-gray-700">
+          <div className="flex">
+            <div className="w-1/3 font-medium pr-4">3. Learning Objective Design</div>
+            <div className="w-2/3 text-sm text-gray-700">
               Fine-tuning uses specialized loss functions that reward the smaller model not just for correct answers but for matching the entire reasoning process of the large model.
             </div>
           </div>
           
-          <div className="flex flex-col sm:flex-row">
-            <div className="w-full sm:w-1/3 font-medium text-sm sm:text-base mb-1 sm:mb-0 sm:pr-4">4. Progressive Knowledge Transfer</div>
-            <div className="w-full sm:w-2/3 text-xs sm:text-sm text-gray-700">
+          <div className="flex">
+            <div className="w-1/3 font-medium pr-4">4. Progressive Knowledge Transfer</div>
+            <div className="w-2/3 text-sm text-gray-700">
               A cascade of fine-tuning occurs: 671B → 70B → 7B → 1.5B, where each smaller model can learn from the previously fine-tuned model rather than always using the largest one.
             </div>
           </div>
           
-          <div className="flex flex-col sm:flex-row">
-            <div className="w-full sm:w-1/3 font-medium text-sm sm:text-base mb-1 sm:mb-0 sm:pr-4">5. Evaluation and Refinement</div>
-            <div className="w-full sm:w-2/3 text-xs sm:text-sm text-gray-700">
+          <div className="flex">
+            <div className="w-1/3 font-medium pr-4">5. Evaluation and Refinement</div>
+            <div className="w-2/3 text-sm text-gray-700">
               Each fine-tuned model is tested for reasoning quality, with additional fine-tuning rounds applied if needed to ensure they maintain the reasoning capabilities of the large model.
             </div>
           </div>
         </div>
       </div>
     </div>
-  );
-};
-
-export default DeepSeekVisualization;
+      );
+    };
+    
+    export default DeepSeekVisualization;
