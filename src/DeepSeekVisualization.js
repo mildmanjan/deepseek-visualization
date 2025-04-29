@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Play, Pause, RotateCcw, ArrowRight, HelpCircle, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 // Helper Panel Component
 const InfoPanel = ({ isOpen, setIsOpen }) => {
@@ -568,7 +569,13 @@ const DeepSeekVisualization = () => {
             </div>
           </div>
         </div>
+        {/* Add the Transformer paper link here */}
+      <div className="text-center mt-4 sm:mt-8 text-xs sm:text-sm">
+        <Link to="/transformer" className="text-blue-500 hover:text-blue-700 underline">
+          Learn about the Transformer architecture behind DeepSeek →
+        </Link>
       </div>
+    </div>
     </div>
   );
 };
